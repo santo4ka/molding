@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /*.php$
-Disallow: /admin/
 
-Sitemap: https://https://santo4ka.github.io/Pro100molding/sitemap.xml
+Sitemap: https://pro100molding.site/sitemap.xml
+

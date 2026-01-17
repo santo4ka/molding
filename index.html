@@ -6,323 +6,129 @@
 
 <title>PRO100MOLDING — монтаж плинтуса, молдингов и лепнины в Москве</title>
 
-<meta name="description"
-      content="Профессиональный монтаж напольного плинтуса, молдингов и потолочного декора в Москве и МО. Аккуратные стыки, идеальная геометрия. Фото реальных работ.">
-<meta name="keywords"
-      content="монтаж плинтуса Москва, установка молдингов, декор потолка, лепнина, мастер отделки Москва">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Профессиональный монтаж напольного плинтуса, молдингов и потолочного декора в Москве и МО. Аккуратные стыки, идеальная геометрия. Фото реальных работ.">
+<meta name="keywords" content="монтаж плинтуса Москва, установка молдингов, декор потолка, лепнина, мастер отделки Москва">
 <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://pro100molding.site/">
 
 <link rel="icon" href="favicon.png" type="image/png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="PRO100MOLDING — монтаж плинтуса, молдингов и лепнины">
+<meta property="og:description" content="Монтаж плинтуса, молдингов и потолочного декора. Москва и МО. Фото реальных работ.">
+<meta property="og:image" content="https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pro100molding.site/">
+
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --gold: #c5a059;
-    --dark: #1a1a1a;
-    --light: #f4f4f4;
-}
+:root{--gold:#c5a059;--dark:#1a1a1a;--light:#f4f4f4}
+body{margin:0;font-family:'Montserrat',sans-serif;background:var(--light);color:#333;overflow-x:hidden}
 
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: var(--light);
-    color: #333;
-    overflow-x: hidden;
-}
+/* HEADER */
+.site-header{position:relative;height:45vh;min-height:280px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 12px;background-size:cover;background-position:center;border-bottom:5px solid var(--gold)}
+.site-header::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));z-index:1}
+.site-header-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.site-logo{margin:0;font-size:clamp(1.3rem,7vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase;text-shadow:2px 4px 15px rgba(0,0,0,.7)}
+.site-logo a{color:inherit;text-decoration:none}
+.site-slogan{margin-top:28px;font-size:clamp(.65rem,3vw,.9rem);font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--gold);padding:6px 14px;border-radius:4px}
+.site-location{margin-top:10px;font-size:.7rem;opacity:.85;letter-spacing:.8px}
 
-/* ===== HEADER ===== */
-.site-header {
-    position: relative;
-    height: 45vh;
-    min-height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    padding: 0 12px;
-    background-size: cover;
-    background-position: center;
-    border-bottom: 5px solid var(--gold);
-}
+/* MAIN */
+main{max-width:1100px;margin:-30px auto 40px;padding:0 15px;position:relative;z-index:10}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
 
-.site-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
-    z-index: 1;
-}
+.service-card{background:#fff;border-radius:10px;box-shadow:0 8px 25px rgba(0,0,0,.1);overflow:hidden;text-align:center;border-top:5px solid var(--gold);display:flex;flex-direction:column}
+.service-card img{width:100%;height:180px;object-fit:cover;display:block}
+.service-card h2{margin:12px 0 8px;font-size:1rem;text-transform:uppercase}
+.service-card h2 a{color:var(--dark);text-decoration:none;font-weight:700}
+.service-card p{margin:0 12px 12px;font-size:.8rem;color:#666;line-height:1.4}
 
-.site-header-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.btn-main{margin:auto 12px 12px;padding:10px 0;background:var(--gold);color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;text-transform:uppercase;font-size:.8rem;transition:.3s}
+.btn-main:hover{background:var(--dark)}
 
-.site-logo {
-    margin: 0;
-    font-size: clamp(1.3rem, 7vw, 3.5rem);
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 2px 4px 15px rgba(0,0,0,.7);
-    white-space: nowrap;
-}
+/* REVIEWS */
+.review-section{text-align:center;margin:40px 0}
+.btn-profi{display:inline-block;background:#8b1e1e;color:#fff;padding:12px 20px;border-radius:5px;font-weight:bold;text-transform:uppercase;font-size:.9rem;text-decoration:none;transition:.3s}
+.btn-profi:hover{background:#5f1414}
 
-.site-logo a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.site-slogan {
-    margin-top: 28px;
-    font-size: clamp(0.65rem, 3vw, 0.9rem);
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: var(--gold);
-    padding: 6px 14px;
-    border-radius: 4px;
-}
-
-.site-location {
-    margin-top: 10px;
-    font-size: 0.7rem;
-    opacity: 0.85;
-    letter-spacing: 0.8px;
-}
-
-/* ===== MAIN ===== */
-main {
-    max-width: 1100px;
-    margin: -30px auto 40px;
-    padding: 0 15px;
-    position: relative;
-    z-index: 10;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-}
-
-.service-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    overflow: hidden;
-    text-align: center;
-    border-top: 5px solid var(--gold);
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-}
-
-.service-card.molding img {
-    object-position: center 80%;
-}
-
-.service-card h2 {
-    margin: 12px 0 8px;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-
-.service-card h2 a {
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.service-card p {
-    margin: 0 12px 12px;
-    font-size: 0.8rem;
-    color: #666;
-    line-height: 1.4;
-}
-
-.btn-main {
-    margin: auto 12px 12px;
-    padding: 10px 0;
-    background: var(--gold);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    transition: 0.3s;
-}
-
-.btn-main:hover {
-    background: var(--dark);
-}
-
-/* ===== REVIEWS ===== */
-.review-section {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.btn-profi {
-    display: inline-block;
-    background: #8b1e1e;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn-profi:hover {
-    background: #5f1414;
-}
-
-/* ===== FOOTER ===== */
-footer {
-    text-align: center;
-    padding: 20px 10px 30px;
-}
-
-.footer-text {
-    font-size: 0.8rem;
-    color: #888;
-    margin-bottom: 15px;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-}
-
-.footer-links a {
-    min-width: 120px;
-    max-width: 160px;
-    padding: 12px 18px;
-    border-radius: 8px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.85rem;
-}
-
-.footer-copy {
-    font-size: 0.7rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+/* FOOTER */
+footer{text-align:center;padding:20px 10px 30px}
+.footer-text{font-size:.8rem;color:#888;margin-bottom:15px}
+.footer-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.footer-links a{min-width:120px;max-width:160px;padding:12px 18px;border-radius:8px;color:#fff;text-decoration:none;font-weight:bold;font-size:.85rem}
+.footer-copy{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:1px}
 </style>
 </head>
 
 <body>
 
-<header class="site-header"
-        style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200');">
-    <div class="site-header-content">
-        <h1 class="site-logo">
-            <a href="./">PRO100MOLDING</a>
-        </h1>
-        <div class="site-slogan">Когда детали имеют значение</div>
-        <div class="site-location">Москва и Московская область • Работаю лично</div>
-    </div>
+<header class="site-header" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200');">
+  <div class="site-header-content">
+    <h1 class="site-logo"><a href="https://pro100molding.site/">PRO100MOLDING</a></h1>
+    <div class="site-slogan">Когда детали имеют значение</div>
+    <div class="site-location">Москва и Московская область • Работаю лично</div>
+  </div>
 </header>
 
 <main>
-    <section class="services-grid">
+<section class="services-grid">
 
-        <article class="service-card">
-            <img src="https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg"
-                 alt="Монтаж напольного плинтуса в Москве"
-                 loading="lazy">
-            <h2><a href="plintus.html">Напольный плинтус</a></h2>
-            <p>Идеальная стыковка МДФ и дюрополимера. Скрытый монтаж любой сложности.</p>
-            <a href="plintus.html" class="btn-main">Смотреть работы</a>
-        </article>
+<article class="service-card">
+  <img src="https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg" alt="Монтаж напольного плинтуса в Москве и МО" loading="lazy">
+  <h2><a href="plintus.html">Напольный плинтус</a></h2>
+  <p>Идеальная стыковка МДФ и дюрополимера. Скрытый монтаж любой сложности.</p>
+  <a href="plintus.html" class="btn-main">Смотреть работы</a>
+</article>
 
-        <article class="service-card molding">
-            <img src="https://i.ibb.co/YFdRxv7M/photo-2-2026-01-11-10-11-40.jpg"
-                 alt="Монтаж молдингов и стеновых панелей"
-                 loading="lazy">
-            <h2><a href="molding.html">Стены и молдинги</a></h2>
-            <p>Классические рамки и современные стеновые панели с точной геометрией.</p>
-            <a href="molding.html" class="btn-main">Смотреть работы</a>
-        </article>
+<article class="service-card">
+  <img src="https://i.ibb.co/YFdRxv7M/photo-2-2026-01-11-10-11-40.jpg" alt="Монтаж стеновых молдингов и панелей" loading="lazy">
+  <h2><a href="molding.html">Стены и молдинги</a></h2>
+  <p>Классические рамки и современные стеновые панели с точной геометрией.</p>
+  <a href="molding.html" class="btn-main">Смотреть работы</a>
+</article>
 
-        <article class="service-card">
-            <img src="https://i.ibb.co/DD1KF5Z7/1111111.jpg"
-                 alt="Монтаж потолочных карнизов и лепнины"
-                 loading="lazy">
-            <h2><a href="decor.html">Декор потолка</a></h2>
-            <p>Карнизы, лепнина и аккуратные стыки без трещин.</p>
-            <a href="decor.html" class="btn-main">Смотреть работы</a>
-        </article>
+<article class="service-card">
+  <img src="https://i.ibb.co/DD1KF5Z7/1111111.jpg" alt="Монтаж потолочного декора и карнизов" loading="lazy">
+  <h2><a href="decor.html">Декор потолка</a></h2>
+  <p>Карнизы, лепнина и аккуратные стыки без трещин.</p>
+  <a href="decor.html" class="btn-main">Смотреть работы</a>
+</article>
 
-    </section>
+</section>
 </main>
 
 <section class="review-section">
-    <p style="font-weight:700; margin-bottom:12px;">Реальные отзывы клиентов</p>
-    <a href="https://profi.ru/profile/SerovEA/"
-       target="_blank"
-       rel="noopener"
-       class="btn-profi">
-        Смотреть на Профи.ру
-    </a>
+  <p style="font-weight:700;margin-bottom:12px;">Реальные отзывы клиентов</p>
+  <a href="https://profi.ru/profile/SerovEA/" target="_blank" rel="noopener" class="btn-profi">Смотреть на Профи.ру</a>
 </section>
 
 <footer>
-    <p class="footer-text">Связаться со мной:</p>
-
-    <div class="footer-links">
-        <a href="tel:+79264498797" style="background:var(--dark);">Позвонить</a>
-        <a href="https://wa.me/79264498797" style="background:#25D366;">WhatsApp</a>
-        <a href="https://t.me/+79264498797" style="background:#0088cc;">Telegram</a>
-    </div>
-
-    <div class="footer-copy">
-        © 2026 PRO100MOLDING. Все права защищены.
-    </div>
+  <p class="footer-text">Связаться со мной:</p>
+  <div class="footer-links">
+    <a href="tel:+79264498797" style="background:var(--dark);">Позвонить</a>
+    <a href="https://wa.me/79264498797" style="background:#25D366;">WhatsApp</a>
+    <a href="https://t.me/+79264498797" style="background:#0088cc;">Telegram</a>
+  </div>
+  <div class="footer-copy">© 2026 PRO100MOLDING. Все права защищены.</div>
 </footer>
 
-<!-- Schema.org -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "PRO100MOLDING",
-  "image": "https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg",
-  "telephone": "+7-926-449-87-97",
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "Москва и Московская область"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Москва",
-    "addressCountry": "RU"
-  }
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"PRO100MOLDING",
+  "url":"https://pro100molding.site/",
+  "image":"https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg",
+  "telephone":"+7-926-449-87-97",
+  "areaServed":{"@type":"AdministrativeArea","name":"Москва и Московская область"}
 }
 </script>
 

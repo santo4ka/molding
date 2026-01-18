@@ -66,6 +66,32 @@ footer{text-align:center;padding:20px 10px 30px}
 .footer-links a{min-width:120px;max-width:160px;padding:12px 18px;border-radius:8px;color:#fff;text-decoration:none;font-weight:bold;font-size:.85rem}
 .footer-copy{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:1px}
 </style>
+  <style>
+.snowflake {
+    position: fixed;
+    top: -10px;
+    z-index: 9999;
+    color: #fff;
+    font-size: 14px;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.8;
+    animation-name: fall, sway;
+    animation-timing-function: linear, ease-in-out;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(40px); }
+}
+</style>
+
 </head>
 
 <body>
@@ -131,6 +157,31 @@ footer{text-align:center;padding:20px 10px 30px}
   "areaServed":{"@type":"AdministrativeArea","name":"Москва и Московская область"}
 }
 </script>
+  <script>
+(function () {
+    const snowCount = 35; // количество снежинок
+
+    for (let i = 0; i < snowCount; i++) {
+        const snow = document.createElement('div');
+        snow.className = 'snowflake';
+        snow.textContent = '❄';
+
+        const size = Math.random() * 12 + 8;
+        snow.style.fontSize = size + 'px';
+
+        snow.style.left = Math.random() * 100 + 'vw';
+        snow.style.animationDuration =
+            Math.random() * 10 + 10 + 's, ' +
+            (Math.random() * 3 + 3) + 's';
+
+        snow.style.animationDelay = Math.random() * 10 + 's';
+
+        document.body.appendChild(snow);
+    }
+})();
+</script>
+
 
 </body>
 </html>
+

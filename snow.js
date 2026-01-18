@@ -1,29 +1,49 @@
 (function () {
-    const SNOW_COUNT = 100;
     const STORAGE_KEY = 'snowEnabled';
+    const MAX_SNOW = 60;
+    const SPAWN_INTERVAL = 700; // чем меньше — тем гуще снег
+
     let snowflakes = [];
+    let spawnTimer = null;
 
-    function createSnow() {
-        for (let i = 0; i < SNOW_COUNT; i++) {
-            const s = document.createElement('div');
-            s.className = 'snowflake';
-            s.textContent = '❄';
+    function createSnowflake() {
+        if (snowflakes.length >= MAX_SNOW) return;
 
-            const size = Math.random() * 10 + 8;
-            s.style.fontSize = size + 'px';
-            s.style.left = Math.random() * 100 + 'vw';
+        const s = document.createElement('div');
+        s.className = 'snowflake';
+        s.textContent = '❄';
 
-            const fall = Math.random() * 20 + 25;
-            const sway = Math.random() * 6 + 6;
-            s.style.animationDuration = `${fall}s, ${sway}s`;
-            s.style.animationDelay = `${Math.random() * 10}s`;
+        const size = Math.random() * 10 + 8;
+        const left = Math.random() * 100;
 
-            document.body.appendChild(s);
-            snowflakes.push(s);
-        }
+        s.style.fontSize = size + 'px';
+        s.style.left = left + 'vw';
+        s.style.top = '-20px';
+
+        const fallDuration = Math.random() * 20 + 25;
+        const swayDuration = Math.random() * 6 + 6;
+
+        s.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+        s.style.animationDelay = `0s`;
+
+        document.body.appendChild(s);
+        snowflakes.push(s);
+
+        // удаляем снежинку после падения
+        setTimeout(() => {
+            s.remove();
+            snowflakes = snowflakes.filter(f => f !== s);
+        }, fallDuration * 1000);
     }
 
-    function removeSnow() {
+    function startSnow() {
+        if (spawnTimer) return;
+        spawnTimer = setInterval(createSnowflake, SPAWN_INTERVAL);
+    }
+
+    function stopSnow() {
+        clearInterval(spawnTimer);
+        spawnTimer = null;
         snowflakes.forEach(s => s.remove());
         snowflakes = [];
     }
@@ -35,8 +55,8 @@
 
         localStorage.setItem(STORAGE_KEY, enabled);
 
-        if (enabled && snowflakes.length === 0) createSnow();
-        if (!enabled) removeSnow();
+        if (enabled) startSnow();
+        else stopSnow();
 
         toggleBtn.textContent = enabled ? '❄ Снег: ВКЛ' : '❄ Снег: ВЫКЛ';
     }

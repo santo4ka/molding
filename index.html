@@ -67,28 +67,43 @@ footer{text-align:center;padding:20px 10px 30px}
 .footer-copy{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:1px}
 </style>
   <style>
+/* === SNOW === */
 .snowflake {
     position: fixed;
     top: -10px;
-    z-index: 9999;
     color: #fff;
-    font-size: 14px;
     pointer-events: none;
     user-select: none;
-    opacity: 0.8;
-    animation-name: fall, sway;
+    z-index: 9999;
+    opacity: 0.85;
+    filter: blur(0.2px);
+    animation-name: snow-fall, snow-drift;
     animation-timing-function: linear, ease-in-out;
 }
 
-@keyframes fall {
-    to {
-        transform: translateY(110vh);
-    }
+@keyframes snow-fall {
+    to { transform: translateY(110vh); }
 }
 
-@keyframes sway {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(40px); }
+@keyframes snow-drift {
+    0%,100% { margin-left: 0; }
+    50% { margin-left: 40px; }
+}
+
+/* === TOGGLE BUTTON === */
+#snow-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
 }
 </style>
 
@@ -157,31 +172,66 @@ footer{text-align:center;padding:20px 10px 30px}
   "areaServed":{"@type":"AdministrativeArea","name":"Москва и Московская область"}
 }
 </script>
-  <script>
+ <script>
 (function () {
-    const snowCount = 35; // количество снежинок
+    const SNOW_COUNT = 40;
+    const STORAGE_KEY = 'snowEnabled';
+    let snowflakes = [];
 
-    for (let i = 0; i < snowCount; i++) {
-        const snow = document.createElement('div');
-        snow.className = 'snowflake';
-        snow.textContent = '❄';
+    function createSnow() {
+        for (let i = 0; i < SNOW_COUNT; i++) {
+            const s = document.createElement('div');
+            s.className = 'snowflake';
+            s.textContent = '❄';
 
-        const size = Math.random() * 12 + 8;
-        snow.style.fontSize = size + 'px';
+            const size = Math.random() * 10 + 8;
+            s.style.fontSize = size + 'px';
+            s.style.left = Math.random() * 100 + 'vw';
 
-        snow.style.left = Math.random() * 100 + 'vw';
-        snow.style.animationDuration =
-            Math.random() * 10 + 10 + 's, ' +
-            (Math.random() * 3 + 3) + 's';
+            const fall = Math.random() * 20 + 25;
+            const sway = Math.random() * 6 + 6;
+            s.style.animationDuration = `${fall}s, ${sway}s`;
+            s.style.animationDelay = `${Math.random() * 10}s`;
 
-        snow.style.animationDelay = Math.random() * 10 + 's';
-
-        document.body.appendChild(snow);
+            document.body.appendChild(s);
+            snowflakes.push(s);
+        }
     }
+
+    function removeSnow() {
+        snowflakes.forEach(s => s.remove());
+        snowflakes = [];
+    }
+
+    function toggleSnow(force) {
+        const enabled = force !== undefined
+            ? force
+            : localStorage.getItem(STORAGE_KEY) !== 'false';
+
+        localStorage.setItem(STORAGE_KEY, enabled);
+
+        if (enabled && snowflakes.length === 0) createSnow();
+        if (!enabled) removeSnow();
+
+        toggleBtn.textContent = enabled ? '❄ Снег: ВКЛ' : '❄ Снег: ВЫКЛ';
+    }
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'snow-toggle';
+    document.body.appendChild(toggleBtn);
+
+    toggleBtn.onclick = () => {
+        const current = localStorage.getItem(STORAGE_KEY) !== 'false';
+        toggleSnow(!current);
+    };
+
+    toggleSnow();
 })();
 </script>
 
 
+
 </body>
 </html>
+
 

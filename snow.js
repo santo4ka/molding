@@ -1,5 +1,5 @@
 (function () {
-    const SNOW_COUNT = 40;
+    const SNOW_COUNT = 100;
     const STORAGE_KEY = 'snowEnabled';
     let snowflakes = [];
 

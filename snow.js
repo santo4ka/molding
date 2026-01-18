@@ -1,10 +1,10 @@
 (function () {
     const STORAGE_KEY = 'snowEnabled';
-    const MAX_SNOW = 60;  // сильный снег
-    const SPAWN_INTERVAL = 700; // чем меньше — тем гуще снег
+    const MAX_SNOW = 70; //больше меньше
+    const SPAWN_INTERVAL = 400; //густота снега
 
     let snowflakes = [];
-    let spawnTimer = null;
+    let timer = null;
 
     function createSnowflake() {
         if (snowflakes.length >= MAX_SNOW) return;
@@ -13,37 +13,35 @@
         s.className = 'snowflake';
         s.textContent = '❄';
 
-        const size = Math.random() * 10 + 8;
+        const size = Math.random() * 10 + 6;
         const left = Math.random() * 100;
+        const duration = Math.random() * 20 + 20;
+        const startY = Math.random() * -100;
 
         s.style.fontSize = size + 'px';
         s.style.left = left + 'vw';
-        s.style.top = '-20px';
-
-        const fallDuration = Math.random() * 20 + 25;
-        const swayDuration = Math.random() * 6 + 6;
-
-        s.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
-        s.style.animationDelay = `0s`;
+        s.style.top = startY + 'px';
+        s.style.opacity = Math.random() * 0.5 + 0.4;
+        s.style.animationDuration = duration + 's';
+        s.style.animationDelay = Math.random() * 5 + 's';
 
         document.body.appendChild(s);
         snowflakes.push(s);
 
-        // удаляем снежинку после падения
         setTimeout(() => {
             s.remove();
             snowflakes = snowflakes.filter(f => f !== s);
-        }, fallDuration * 1000);
+        }, (duration + 5) * 1000);
     }
 
     function startSnow() {
-        if (spawnTimer) return;
-        spawnTimer = setInterval(createSnowflake, SPAWN_INTERVAL);
+        if (timer) return;
+        timer = setInterval(createSnowflake, SPAWN_INTERVAL);
     }
 
     function stopSnow() {
-        clearInterval(spawnTimer);
-        spawnTimer = null;
+        clearInterval(timer);
+        timer = null;
         snowflakes.forEach(s => s.remove());
         snowflakes = [];
     }
@@ -55,9 +53,7 @@
 
         localStorage.setItem(STORAGE_KEY, enabled);
 
-        if (enabled) startSnow();
-        else stopSnow();
-
+        enabled ? startSnow() : stopSnow();
         toggleBtn.textContent = enabled ? '❄ Снег: ВКЛ' : '❄ Снег: ВЫКЛ';
     }
 
@@ -66,8 +62,7 @@
     document.body.appendChild(toggleBtn);
 
     toggleBtn.onclick = () => {
-        const current = localStorage.getItem(STORAGE_KEY) !== 'false';
-        toggleSnow(!current);
+        toggleSnow(localStorage.getItem(STORAGE_KEY) === 'false');
     };
 
     toggleSnow();

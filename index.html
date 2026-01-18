@@ -65,46 +65,48 @@ footer{text-align:center;padding:20px 10px 30px}
 .footer-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}
 .footer-links a{min-width:120px;max-width:160px;padding:12px 18px;border-radius:8px;color:#fff;text-decoration:none;font-weight:bold;font-size:.85rem}
 .footer-copy{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:1px}
-</style>
-  <style>
-/* === SNOW === */
+/* ===== SNOW EFFECT ===== */
+
 .snowflake {
     position: fixed;
-    top: -10px;
+    top: -50px;
     color: #fff;
     pointer-events: none;
     user-select: none;
     z-index: 9999;
-    opacity: 0.85;
-    filter: blur(0.2px);
-    animation-name: snow-fall, snow-drift;
+    filter: blur(0.3px);
+    animation-name: snow-fall, snow-sway;
     animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: 1, infinite;
 }
 
 @keyframes snow-fall {
-    to { transform: translateY(110vh); }
+    to {
+        top: 110vh;
+    }
 }
 
-@keyframes snow-drift {
-    0%,100% { margin-left: 0; }
-    50% { margin-left: 40px; }
+@keyframes snow-sway {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(40px); }
+    100% { transform: translateX(0); }
 }
 
-/* === TOGGLE BUTTON === */
+/* КНОПКА ВКЛ / ВЫКЛ */
 #snow-toggle {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(0,0,0,0.75);
+    z-index: 10000;
+    background: rgba(0,0,0,0.6);
     color: #fff;
     border: none;
     padding: 10px 14px;
-    font-size: 13px;
-    border-radius: 20px;
+    border-radius: 6px;
     cursor: pointer;
-    z-index: 10000;
-    backdrop-filter: blur(4px);
+    font-size: 13px;
 }
+
 </style>
 
 </head>
@@ -175,6 +177,7 @@ footer{text-align:center;padding:20px 10px 30px}
 <script src="snow.js"></script>
 </body>
 </html>
+
 
 
 

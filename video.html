@@ -229,6 +229,38 @@
   }
 }
 </script>
+    <script>
+fetch('videos.json')
+  .then(r => r.json())
+  .then(videos => {
+    const grid = document.querySelector('.video-grid');
+
+    videos.forEach(video => {
+      const box = document.createElement('div');
+      box.className = 'video-item';
+
+      if (video.type === 'local') {
+        box.innerHTML = `
+          <video controls preload="metadata">
+            <source src="${video.src}" type="video/mp4">
+          </video>
+        `;
+      } else {
+        box.innerHTML = `
+          <iframe
+            src="${video.src}"
+            title="${video.title}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
+      }
+
+      grid.appendChild(box);
+    });
+  });
+</script>
+
 
 </body>
 </html>

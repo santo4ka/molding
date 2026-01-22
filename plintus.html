@@ -51,6 +51,34 @@
               url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200')
               center bottom / cover no-repeat;
         }
+        .video-icon {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.4rem;
+    text-decoration: none;
+
+    color: #fff;
+    background: rgba(0,0,0,0.45);
+    border-radius: 50%;
+
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 5;
+}
+
+.video-icon:hover {
+    transform: scale(1.15);
+    background: rgba(0,0,0,0.65);
+}
+
 
         .site-header-content {
             z-index: 2;
@@ -202,6 +230,10 @@
 <body>
 
 <header class="site-header">
+    <a href="video.html" class="video-icon" aria-label="Видео работ">
+    🎥
+</a>
+
     <div class="site-header-content">
         <p class="site-logo"><a href="./index.html">PRO100MOLDING</a></p>
         <div class="site-slogan">Идеальные стыки и скрытый монтаж плинтуса</div>

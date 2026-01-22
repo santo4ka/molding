@@ -43,16 +43,31 @@ body{margin:0;font-family:'Montserrat',sans-serif;background:var(--light);color:
     
     /*Video*/
     .video-icon {
-    margin-top: 12px;
-    font-size: 1.6rem;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.4rem;
     text-decoration: none;
-    color: var(--gold);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    color: #fff;
+    background: rgba(0,0,0,0.45);
+    border-radius: 50%;
+
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 5;
 }
 
 .video-icon:hover {
     transform: scale(1.15);
-    opacity: 0.85;
+    background: rgba(0,0,0,0.65);
 }
 
 
@@ -193,6 +208,7 @@ footer{text-align:center;padding:20px 10px 30px}
 <script src="snow.js"></script>
 </body>
 </html>
+
 
 
 

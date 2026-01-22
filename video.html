@@ -13,12 +13,28 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 
+    <!-- ===== Schema.org (ОДИН, ПРАВИЛЬНЫЙ) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Видео работ PRO100MOLDING",
+      "description": "Видео монтажа плинтуса, молдингов и потолочного декора",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PRO100MOLDING",
+        "url": "https://pro100molding.site"
+      }
+    }
+    </script>
+
     <style>
         :root {
             --gold: #c5a059;
             --dark: #1a1a1a;
             --light: #f4f4f4;
             --white: #fff;
+            --gray: #666;
         }
 
         body {
@@ -27,7 +43,6 @@
             background: var(--light);
             color: #333;
         }
-
 
         /* ===== HEADER ===== */
         .site-header {
@@ -90,6 +105,17 @@
             border-top: 5px solid var(--gold);
         }
 
+        .breadcrumbs {
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
         h1 {
             margin-top: 0;
             font-size: 1.3rem;
@@ -97,7 +123,7 @@
         }
 
         .intro {
-            color: #666;
+            color: var(--gray);
             font-size: 0.9rem;
             line-height: 1.5;
             margin-bottom: 25px;
@@ -156,19 +182,6 @@
             letter-spacing: 1px;
         }
     </style>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Видео работ PRO100MOLDING",
-  "description": "Видео монтажа плинтуса, молдингов и потолочного декора",
-  "publisher": {
-    "@type": "Organization",
-    "name": "PRO100MOLDING"
-  }
-}
-</script>
-
 </head>
 
 <body>
@@ -185,6 +198,11 @@
 <main>
     <section class="content-block">
 
+        <!-- ← СТРЕЛКА НА ГЛАВНУЮ -->
+        <nav class="breadcrumbs">
+            <a href="index.html">← НА ГЛАВНУЮ</a>
+        </nav>
+
         <h1>Видео выполненных работ</h1>
 
         <p class="intro">
@@ -193,17 +211,7 @@
         </p>
 
         <div class="video-grid">
-
-            <!-- 🔹 Пример YouTube -->
-            <div class="video-item">
-                <iframe
-                    src="https://www.youtube.com/embed/VIDEO_ID"
-                    title="Монтаж плинтуса PRO100MOLDING"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
+            <!-- Видео подгружаются из videos.json -->
         </div>
 
     </section>
@@ -221,7 +229,7 @@
     </div>
 </footer>
 
-    <script>
+<script>
 fetch('videos.json')
   .then(r => r.json())
   .then(videos => {
@@ -252,7 +260,6 @@ fetch('videos.json')
     });
   });
 </script>
-
 
 </body>
 </html>

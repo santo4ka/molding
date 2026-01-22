@@ -1,0 +1,12 @@
+[
+  {
+    "type": "local",
+    "src": "video/plintus-1.mp4",
+    "title": "Плинтус МДФ"
+  },
+  {
+    "type": "youtube",
+    "src": "https://www.youtube.com/shorts/g6q5_5_aVNY",
+    "title": "Плинтус — видео с YouTube"
+  }
+]

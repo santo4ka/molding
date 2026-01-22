@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Видео работ — монтаж плинтуса и декора | PRO100MOLDING</title>
+
+    <meta name="description"
+          content="Видео реальных работ PRO100MOLDING: монтаж напольного плинтуса, молдингов и потолочного декора. Москва и МО.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #fff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--light);
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            position: relative;
+            height: 40vh;
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            border-bottom: 5px solid var(--gold);
+            background:
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200')
+                center / cover no-repeat;
+        }
+
+        .site-header-content {
+            z-index: 2;
+        }
+
+        .site-logo {
+            margin: 0;
+            font-size: clamp(1.3rem, 7vw, 3rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .site-logo a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-slogan {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            background: var(--gold);
+            padding: 6px 14px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            max-width: 1000px;
+            margin: -30px auto 40px;
+            padding: 0 15px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .content-block {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--gold);
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+        }
+
+        .intro {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        /* ===== VIDEO GRID ===== */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .video-item {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-item iframe,
+        .video-item video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px 15px 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            min-width: 120px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="site-header-content">
+        <h1 class="site-logo">
+            <a href="index.html">PRO100MOLDING</a>
+        </h1>
+        <div class="site-slogan">Видео реальных работ</div>
+    </div>
+</header>
+
+<main>
+    <section class="content-block">
+
+        <h1>Видео выполненных работ</h1>
+
+        <p class="intro">
+            Здесь собраны видео реальных объектов: монтаж напольного плинтуса,
+            молдингов и потолочного декора. Без постановки — только живая работа.
+        </p>
+
+        <div class="video-grid">
+
+            <!-- 🔹 Пример YouTube -->
+            <div class="video-item">
+                <iframe
+                    src="https://www.youtube.com/embed/VIDEO_ID"
+                    title="Монтаж плинтуса PRO100MOLDING"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- 🔹 Пример локального видео -->
+            <!--
+            <div class="video-item">
+                <video controls preload="metadata">
+                    <source src="video/plintus.mp4" type="video/mp4">
+                </video>
+            </div>
+            -->
+
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="tel:+79264498797" style="background:#1a1a1a;">Позвонить</a>
+        <a href="https://wa.me/79264498797" style="background:#25D366;">WhatsApp</a>
+        <a href="https://t.me/+79264498797" style="background:#0088cc;">Telegram</a>
+    </div>
+
+    <div class="footer-copy">
+        © 2026 PRO100MOLDING
+    </div>
+</footer>
+
+<!-- ===== VideoObject Schema ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGallery",
+  "name": "Видео работ PRO100MOLDING",
+  "description": "Видео монтажа плинтуса, молдингов и потолочного декора",
+  "publisher": {
+    "@type": "Organization",
+    "name": "PRO100MOLDING"
+  }
+}
+</script>
+
+</body>
+</html>

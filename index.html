@@ -127,20 +127,6 @@ footer{text-align:center;padding:20px 10px 30px}
     100% { transform: translateX(0); }
 }
 
-/* КНОПКА ВКЛ / ВЫКЛ */
-#snow-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10000;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 13px;
-}
 
 </style>
 
@@ -150,6 +136,9 @@ footer{text-align:center;padding:20px 10px 30px}
 
 <header class="site-header" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200');">
     <a href="video.html" class="video-icon">🎥</a>
+    <a href="javascript:void(0)" id="snow-toggle" class="snow-icon" aria-label="Снег">
+    ❄
+</a>
  <div class="site-header-content">
     <h1 class="site-logo"><a href="https://pro100molding.site/">PRO100MOLDING</a></h1>
     <div class="site-slogan">Когда детали имеют значение</div>
@@ -213,6 +202,7 @@ footer{text-align:center;padding:20px 10px 30px}
 <script src="snow.js"></script>
 </body>
 </html>
+
 
 
 

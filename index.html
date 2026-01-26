@@ -65,15 +65,46 @@ body{margin:0;font-family:'Montserrat',sans-serif;background:var(--light);color:
     transition: transform 0.2s ease, background 0.2s ease;
     z-index: 5;
 }
-    .reviews-icon:hover {
+      /* REVIEWS ICON */
+.reviews-icon {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+
+    font-size: 1.4rem;
+    text-decoration: none;
+
+    color: #fff;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    z-index: 5;
+    cursor: pointer;
+
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.reviews-icon:hover {
     transform: translateX(-50%) scale(1.15);
     background: rgba(0,0,0,0.65);
     border-color: #ffd27a;
     box-shadow: 0 0 10px rgba(197,160,89,0.9);
 }
-     .reviews-icon span {
+
+    .reviews-icon span {
     transform: translateY(-2px);
 }
+
 
         /* SNOW ICON */
 .snow-icon {
@@ -252,6 +283,7 @@ footer{text-align:center;padding:20px 10px 30px}
 <script src="snow.js"></script>
 </body>
 </html>
+
 
 
 

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
+
+
+<title>Отзывы клиентов — PRO100MOLDING</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{--gold:#c5a059;--dark:#1a1a1a;--light:#f4f4f4}
+  html{
+  overflow-y: scroll;
+}
+
+
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:var(--light);
+  color:#333;
+}
+
+/* HEADER */
+.site-header{
+  position:relative;
+  height:45vh;
+  min-height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200') center/cover;
+  border-bottom:5px solid var(--gold);
+}
+.site-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55));
+}
+.site-header-content{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transform: translateY(-10px);
+
+}
+
+.site-logo{
+  margin:0;
+  font-size:clamp(1.3rem,7vw,3.5rem);
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-shadow:2px 4px 15px rgba(0,0,0,.7);
+}
+.site-logo a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.site-slogan{
+  margin-top:30px;
+  font-size:clamp(.65rem,3vw,.9rem);
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background:var(--gold);
+  padding:6px 14px;
+  border-radius:4px;
+}
+
+/* ICONS */
+.icon-btn{
+  position:absolute;
+  top:14px;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.4rem;
+  color:#fff;
+  text-decoration:none;
+  background:rgba(0,0,0,.45);
+  border:1px solid var(--gold);
+  border-radius:50%;
+  z-index:5;
+  transition:.2s;
+}
+.icon-btn:hover{
+  transform:scale(1.15);
+  background:rgba(0,0,0,.65);
+  box-shadow:0 0 10px rgba(197,160,89,.9);
+}
+.video-icon{left:14px}
+.home-icon{right:14px}
+
+/* MAIN */
+main{
+  max-width:1100px;
+  margin:-30px auto 50px;
+  padding:0 15px;
+  position:relative;
+  z-index:10;
+}
+
+.reviews-layout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:20px;
+}
+
+/* REVIEWS */
+.reviews-box,
+.form-box{
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  border-top:5px solid var(--gold);
+}
+
+.review{
+  border-bottom:1px solid #eee;
+  padding:14px 0;
+}
+.review:last-child{border-bottom:none}
+
+.review-name{font-weight:700}
+.review-date{
+  font-size:.7rem;
+  color:#999;
+  margin-bottom:6px;
+}
+.review-text{
+  font-size:.85rem;
+  line-height:1.45;
+}
+
+/* FORM */
+.form-box h3{
+  margin-top:0;
+  text-align:center;
+}
+.form-box input,
+.form-box textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-family:inherit;
+}
+.form-box textarea{
+  resize:none;
+  height:100px;
+}
+.form-box button{
+  width:100%;
+  padding:12px;
+  background:var(--gold);
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  cursor:pointer;
+}
+.form-box button:hover{
+  background:var(--dark);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .reviews-layout{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <a href="video.html" class="icon-btn video-icon">🎥</a>
+  <a href="index.html" class="icon-btn home-icon">🏠</a>
+
+  <div class="site-header-content">
+    <h1 class="site-logo"><a href="index.html">PRO100MOLDING</a></h1>
+    <div class="site-slogan">Мнение клиентов — лучшая рекомендация</div>
+  </div>
+</header>
+
+<main>
+  <div class="reviews-layout">
+
+    <div class="reviews-box">
+      <div id="reviews"></div>
+    </div>
+
+    <div class="form-box">
+      <h3>Оставить отзыв</h3>
+      <input type="text" id="name" placeholder="Ваше имя">
+      <textarea id="text" placeholder="Ваш отзыв"></textarea>
+      <button onclick="addReview()">Отправить</button>
+    </div>
+
+  </div>
+</main>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  serverTimestamp,
+  Timestamp
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCpyJ-MJtaF9HnVBW-SXvrEafZOjEkXnOg",
+  authDomain: "pro100molding-fd23c.firebaseapp.com",
+  projectId: "pro100molding-fd23c"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const reviewsRef = collection(db,"reviews");
+
+/* === ГОТОВЫЕ ОТЗЫВЫ (1 раз) === */
+async function seedReviewsIfEmpty(){
+  const snap = await getDocs(reviewsRef);
+  if(!snap.empty) return;
+
+  const week = 7 * 24 * 60 * 60 * 1000;
+
+  const reviews = [
+    {
+      name:"Ольга П.",
+      text:"Заказывали монтаж и покраску стеновых панелей в гостиной. Работа выполнена очень аккуратно, все линии ровные, углы сведены идеально. После покраски стены выглядят дорого и аккуратно.",
+      createdAt: Timestamp.fromDate(new Date(Date.now() - week))
+    },
+    {
+      name:"Максим Р.",
+      text:"Делали стеновые панели под покраску во всей квартире. Видно, что мастер опытный — геометрия идеальная, краска легла ровно, без подтёков и стыков. Результатом полностью довольны.",
+      createdAt: Timestamp.fromDate(new Date(Date.now() - week - 86400000))
+    },
+    {
+      name:"Екатерина С.",
+      text:"Очень качественный монтаж и покраска стеновых панелей. Всё сделано спокойно, без спешки, с вниманием к деталям. Интерьер стал выглядеть как на визуализациях дизайнера.",
+      createdAt: Timestamp.fromDate(new Date(Date.now() - week - 2*86400000))
+    }
+  ];
+
+  for(const r of reviews){
+    await addDoc(reviewsRef,r);
+  }
+}
+
+async function loadReviews(){
+  const q = query(reviewsRef, orderBy("createdAt","desc"));
+  const snap = await getDocs(q);
+  const box = document.getElementById("reviews");
+  box.innerHTML="";
+
+  snap.forEach(doc=>{
+    const r = doc.data();
+    box.innerHTML+=`
+      <div class="review">
+        <div class="review-name">${r.name}</div>
+        <div class="review-date">${r.createdAt.toDate().toLocaleDateString()}</div>
+        <div class="review-text">${r.text}</div>
+      </div>`;
+  });
+}
+
+window.addReview = async ()=>{
+  const name = document.getElementById("name").value.trim();
+  const text = document.getElementById("text").value.trim();
+  if(!name||!text) return alert("Заполните все поля");
+
+  await addDoc(reviewsRef,{
+    name,
+    text,
+    createdAt: serverTimestamp()
+  });
+
+  document.getElementById("name").value="";
+  document.getElementById("text").value="";
+  loadReviews();
+};
+
+await seedReviewsIfEmpty();
+loadReviews();
+</script>
+
+</body>
+</html>

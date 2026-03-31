@@ -1,0 +1,16 @@
+{
+  "videos": [
+    {
+      "youtubeId": "ntf6rdxZp1k",
+      "title": "Монтаж большого зеркала в прихожей"
+    },
+   // {
+      "youtubeId": "dQw4w9WgXcQ",
+      "title": "Установка зеркала с LED-подсветкой"
+    },
+    {
+      "youtubeId": "dQw4w9WgXcQ",
+      "title": "Процесс создания зеркального панно"
+    }//
+  ]
+}
